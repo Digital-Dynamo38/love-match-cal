@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Love Calculator By DIGITAL DYNAMO</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: "Noto Sans JP", sans-serif;
+                background: linear-gradient(to right, #F08080, #C0C0C0, #DDA0DD);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                margin: 0;
+            }
+
+            .love {
+                width: 90%;
+                max-width: 550px;
+                height: auto;
+                padding: 20px;
+                border-radius: 20px;
+                box-shadow: 0px 0px 30px #4b4949;
+                text-align: center;
+            }
+
+            h1 {
+                font-size: 2rem;
+                margin-bottom: 10px;
+            }
+
+            hr {
+                border: 2px solid #747cdf;
+                margin: 20px 0;
+            }
+
+            input {
+                width: 95%;
+                padding: 15px;
+                margin-top: 15px;
+                border: 3px solid #c9c9c9;
+                background-color: white;
+                border-radius: 15px;
+                font-size: 1rem;
+                transition: 0.8s;
+                text-transform: lowercase;
+            }
+
+            input:hover {
+                scale: 1.05;
+                background: linear-gradient(75deg, #fb63f9, #747cdf);
+                color: black;
+            }
+
+            h4 {
+                margin-top: 15px;
+                font-size: 35px;
+                animation: beat .8s infinite;
+            }
+
+            @keyframes beat {
+                0% {
+                    scale: 1;
+                }
+
+                50% {
+                    scale: 1.2;
+                }
+
+                100% {
+                    scale: 1;
+                }
+            }
+
+            button {
+                display: block;
+                margin: 15px auto;
+                padding: 15px 23px;
+                color: white;
+                background: linear-gradient(75deg, #747cdf, #747cdf);
+                border: none;
+                border-radius: 15px;
+                font-size: 1rem;
+                cursor: pointer;
+                transition: .8s;
+            }
+
+            button:hover {
+                scale: 1.1;
+                background: linear-gradient(75deg, #fb63f9,#747cdf);
+            }
+
+            span {
+                color: red;
+                font-size: 1.3rem;
+            }
+
+            footer {
+                bottom: 2%;
+                right: 2%;
+                font-size: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="love">
+            <h1>TEST YOUR L❤VE</h1>
+            <p>By Aayush Neupane </p>
+            <hr>
+            <input id="user-name" placeholder="Your Name....">
+            <h4>❤</h4>
+            <input id="crush-name" placeholder="Your Crush/lover Name....">
+            <br>
+            <button type="submit" onclick="calculateLove()">Test my love</button>
+            <span id="love-result"></span>
+        </div>
+        <script>
+            function calculateLove() {
+                let above70 = Math.floor(Math.random() * 10) + 71;
+                let below35 = Math.floor(Math.random() * 35);
+                let percentage = Math.floor(Math.random() * 100);
+                let yourName = document.getElementById("user-name").value.toLowerCase();
+                let crushName = document.getElementById("crush-name").value.toLowerCase();
+                let result = document.getElementById('love-result');
+
+                result.innerHTML = '';
+
+                if (yourName.length < 3 || crushName.length < 3) {
+                    return;
+                } else if ((yourName === 'gaurav' && crushName === 'simran') || (yourName === 'simran' && crushName === 'gaurav') || (yourName === 'amit'||'ameet' && crushName === 'khushi'||'khusee'||'khusi')||(yourName === 'khushi'||'khusee'||'khusi' && crushName === 'amit'||'ameet')) {
+                    message = `Dear ${yourName}, you and ${crushName} are a 100% match! ❤️`;
+                } else if ((yourName === 'aayush' || 'hacker'||'basanti' ||'neupane') || (crushName === 'aayush' || 'hacker'||'basanti' ||'neupane')) {
+                    message = `meri billi mujhse hi meow nahi karegi!`;
+                }
+                 else {
+                    message = `Dear ${yourName}, you and ${crushName} are a ${percentage}% match! ❤️`;
+                }
+
+                typeMessage(result, message, 0);
+            }
+
+            function typeMessage(element, message, index) {
+                if (index < message.length) {
+                    element.innerHTML += message.charAt(index);
+                    index++;
+                    setTimeout(function() {
+                        typeMessage(element, message, index);
+                    }, 100);
+                }
+            }
+        </script>
+    </body>
+</html>
+
